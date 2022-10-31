@@ -62,6 +62,7 @@ function restart() {
   if (counter >= 10) {
     restartButton.classList.remove("hidden");
     startButton.classList.add("hidden");
+    counter = 0;
     winner();
   } else {
     restartButton.classList.add("hidden");
