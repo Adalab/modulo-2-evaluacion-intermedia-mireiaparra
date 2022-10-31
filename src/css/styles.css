@@ -1,3 +1,47 @@
 .hidden {
     display: none;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.title {
+font-size: 34px;
+color: #7F1734;
+text-transform:uppercase;
+}
+
+.par {
+    color: grey;
+}
+
+.subtitle {
+    font-weight: 800;
+    font-size: 20px;
+    color: grey;
+}
+.select {
+    border: solid 2px grey;
+}
+
+.start {
+    background-color: #7F1734;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10%;
+    border: none;
+}
+
+.text {
+    width: 400px;
+    background-color: #b47486;
+    color: white;
+   padding: 10px;
+   text-align: center;
+}

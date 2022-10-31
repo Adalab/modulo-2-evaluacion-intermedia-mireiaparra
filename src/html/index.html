@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/reset.css" />
     <link rel="stylesheet" href="/src/css/styles.css" />
     <title>Evaluación intermedia Mireia Maldonado Parra</title>
 </head>
 <body>
-    <h1>Los anillos de poder</h1>
-    <p>La Tierra Media está en guerra! En ella lucharán razas leales a Sauron contra otras bondadosas que no quieren que el mal reine sobre sus tierras.</p>
-    <h2>Eres un jugador del ejército del bien, no olvides tu misión de ganar la batalla.</h2>
-    <select class="js-select">
+    <main class="container">
+    <h1 class="title">Los anillos de poder</h1>
+    <p class="par">La Tierra Media está en guerra! En ella lucharán razas leales a Sauron contra otras bondadosas que no quieren que el mal reine sobre sus tierras.</p>
+    <h2 class="subtitle">Eres un jugador del ejército del bien, no olvides tu misión de ganar la batalla.</h2>
+    <select class=" select js-select">
         <option value="" selected disabled>Selecciona la raza con la que vas a jugar</option>
         <option value="1">Pelosos con fuerza</option>
         <option value="2">Sureños buenos con fuerza</option>
@@ -19,12 +21,13 @@
         <option value="4">Númenóreanos con fuerza</option>
         <option value="5">Elfos con fuerza</option>
     </select>
-    <button class="js-button">Batalla</button>
-    <p class="js-text">¡Comienza la batalla!</p>
+    <button class="start js-button">Batalla</button>
+    <p class="text js-text">¡Comienza la batalla!</p>
     <h3>Puntuaciones</h3>
     <p class="js-player"></p>
     <p class="js-cpu"></p>
-    <button class="js-restart hidden">Reiniciar Juego</button>
+    <button class="js-restart hidden start">Reiniciar Juego</button>
+</main>
     <script src="/src/js/main.js"></script>
 </body>
 </html>
