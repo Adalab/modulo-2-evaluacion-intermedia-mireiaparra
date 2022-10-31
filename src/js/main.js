@@ -3,6 +3,7 @@ const choose = document.querySelector(".js-select");
 const text = document.querySelector(".js-text");
 const player = document.querySelector(".js-player");
 const cpu = document.querySelector(".js-cpu");
+const restartButton = document.querySelector(".js-restart");
 let playerPoints = "";
 let cpuPoints = "";
 
@@ -24,8 +25,10 @@ function strength(raceNumber) {
 }
 
 startButton.addEventListener("click", () => {
+  event.preventDefault();
   compare(strength(getRandomNumber(5)));
   points();
+  restart();
 });
 
 function choosePlayer() {
@@ -45,7 +48,26 @@ function compare(randomNumber) {
   }
 }
 
-function points () {
- player.innerHTML = `Jugador: ${playerPoints}`;
- cpu.innerHTML = `Computadora: ${cpuPoints}`;
+function points() {
+  player.innerHTML = `Jugador: ${playerPoints}`;
+  cpu.innerHTML = `Computadora: ${cpuPoints}`;
 }
+
+function restart() {
+  if (parseInt(playerPoints) + parseInt(cpuPoints) >= 10) {
+    restartButton.classList.remove("hidden");
+    startButton.classList.add("hidden");
+  } else {
+    restartButton.classList.add("hidden");
+    startButton.classList.remove("hidden");
+  }
+}
+
+restartButton.addEventListener("click", () => {
+  event.preventDefault();
+  restartButton.classList.add("hidden");
+  playerPoints = 0;
+  cpuPoints = 0;
+  points();
+  startButton.classList.remove("hidden");
+});
