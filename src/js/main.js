@@ -1,6 +1,10 @@
 const startButton = document.querySelector(".js-button");
 const choose = document.querySelector(".js-select");
 const text = document.querySelector(".js-text");
+const player = document.querySelector(".js-player");
+const cpu = document.querySelector(".js-cpu");
+let playerPoints = "";
+let cpuPoints = "";
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
@@ -21,6 +25,7 @@ function strength(raceNumber) {
 
 startButton.addEventListener("click", () => {
   compare(strength(getRandomNumber(5)));
+  points();
 });
 
 function choosePlayer() {
@@ -29,14 +34,18 @@ function choosePlayer() {
 }
 
 function compare(randomNumber) {
-  console.log(choosePlayer());
-  console.log(randomNumber);
-
   if (choosePlayer() > randomNumber) {
     text.innerHTML = "¡Ha ganado el Ejército del Bien! Enhorabuena";
+    playerPoints++;
   } else if (choosePlayer() === randomNumber) {
     text.innerHTML = "Empate";
   } else {
     text.innerHTML = "¡Ha ganado el Ejército del Mal! Vuelve a intentarlo";
+    cpuPoints++;
   }
+}
+
+function points () {
+ player.innerHTML = `Jugador: ${playerPoints}`;
+ cpu.innerHTML = `Computadora: ${cpuPoints}`;
 }
