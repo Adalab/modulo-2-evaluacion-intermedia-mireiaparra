@@ -1,3 +1,4 @@
+"use strict";
 const startButton = document.querySelector(".js-button");
 const choose = document.querySelector(".js-select");
 const text = document.querySelector(".js-text");
@@ -6,6 +7,7 @@ const cpu = document.querySelector(".js-cpu");
 const restartButton = document.querySelector(".js-restart");
 let playerPoints = "";
 let cpuPoints = "";
+let counter = "";
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
@@ -40,11 +42,14 @@ function compare(randomNumber) {
   if (choosePlayer() > randomNumber) {
     text.innerHTML = "¡Ha ganado el Ejército del Bien! Enhorabuena";
     playerPoints++;
+    counter++;
   } else if (choosePlayer() === randomNumber) {
     text.innerHTML = "Empate";
+    counter++;
   } else {
     text.innerHTML = "¡Ha ganado el Ejército del Mal! Vuelve a intentarlo";
     cpuPoints++;
+    counter++;
   }
 }
 
@@ -54,7 +59,7 @@ function points() {
 }
 
 function restart() {
-  if (parseInt(playerPoints) + parseInt(cpuPoints) >= 10) {
+  if (counter >= 10) {
     restartButton.classList.remove("hidden");
     startButton.classList.add("hidden");
     winner();
