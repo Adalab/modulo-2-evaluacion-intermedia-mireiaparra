@@ -6,8 +6,18 @@ function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
   }
 
+function strength (raceNumber) {
+    if (raceNumber === 4) {
+        return 3;
+    } else if (raceNumber === 5) {
+        return 5;
+    }else {
+        return 2;
+    }
+}
+
 startButton.addEventListener('click', () => {
-   compare(getRandomNumber(6));
+   compare(strength(getRandomNumber(5)));
   });
 
 function choosePlayer() {
@@ -20,14 +30,14 @@ function compare(randomNumber) {
     console.log(randomNumber);
     
 if (choosePlayer() > randomNumber) {
-    console.log("ganas tú");
+    text.innerHTML = "¡Ha ganado el Ejército del Bien! Enhorabuena";
 }
 
 else if (choosePlayer() === randomNumber) {
-    console.log("empate");
+    text.innerHTML =  "Empate";
 }
 else {
-    console.log("gana la máquina");
+    text.innerHTML =  "¡Ha ganado el Ejército del Mal! Vuelve a intentarlo";
 }
 }
 
