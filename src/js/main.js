@@ -57,6 +57,7 @@ function restart() {
   if (parseInt(playerPoints) + parseInt(cpuPoints) >= 10) {
     restartButton.classList.remove("hidden");
     startButton.classList.add("hidden");
+    winner();
   } else {
     restartButton.classList.add("hidden");
     startButton.classList.remove("hidden");
@@ -68,6 +69,17 @@ restartButton.addEventListener("click", () => {
   restartButton.classList.add("hidden");
   playerPoints = 0;
   cpuPoints = 0;
+  text.innerHTML = "¡Comienza la batalla!";
   points();
   startButton.classList.remove("hidden");
 });
+
+function winner() {
+    if (playerPoints > cpuPoints) {
+        text.innerHTML = "¡Has vencido! Enhorabuena";
+      } else if (playerPoints === cpuPoints) {
+        text.innerHTML = "Empate";
+      } else {
+        text.innerHTML = "¡Has perdido! Vuelve a intentarlo";
+      }
+    }
