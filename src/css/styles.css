@@ -1,47 +1,52 @@
 .hidden {
-    display: none;
+  display: none;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
 }
 
 .title {
-font-size: 34px;
-color: #7F1734;
-text-transform:uppercase;
+  font-size: 34px;
+  color: #7f1734;
+  text-transform: uppercase;
 }
 
 .par {
-    color: grey;
+  color: grey;
 }
 
 .subtitle {
-    font-weight: 800;
-    font-size: 20px;
-    color: grey;
+  font-weight: 800;
+  font-size: 20px;
+  color: grey;
+}
+
+.button-container {
+  flex-direction: row;
 }
 .select {
-    border: solid 2px grey;
+  border: solid 2px grey;
 }
 
 .start {
-    background-color: #7F1734;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10%;
-    border: none;
+  background-color: #7f1734;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10%;
+  border: none;
+  margin-left: 10px;
 }
 
 .text {
-    width: 400px;
-    background-color: #b47486;
-    color: white;
-   padding: 10px;
-   text-align: center;
+  width: 400px;
+  background-color: #b47486;
+  color: white;
+  padding: 10px;
+  text-align: center;
 }
