@@ -5,15 +5,15 @@ const text = document.querySelector(".js-text");
 const player = document.querySelector(".js-player");
 const cpu = document.querySelector(".js-cpu");
 const restartButton = document.querySelector(".js-restart");
-let playerPoints = "";
-let cpuPoints = "";
-let counter = "";
+let playerPoints = 0;
+let cpuPoints = 0;
+let counter = 0;
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
 
-function strength(raceNumber) {
+function getStrength(raceNumber) {
   let strengthResult = "";
   if (raceNumber === 4) {
     strengthResult = 3;
@@ -28,8 +28,8 @@ function strength(raceNumber) {
 
 startButton.addEventListener("click", () => {
   event.preventDefault();
-  compare(strength(getRandomNumber(5)));
-  points();
+  compare(getStrength(getRandomNumber(5)));
+  getPoints();
   restart();
 });
 
@@ -38,24 +38,29 @@ function choosePlayer() {
   return resultPlayer;
 }
 
+function paintHTML(eachElement, eachText) {
+  eachElement.innerHTML = eachText;
+}
+
 function compare(randomNumber) {
-  if (choosePlayer() > randomNumber) {
-    text.innerHTML = "¡Ha ganado el Ejército del Bien! Enhorabuena";
+  const resultPlayer = choosePlayer();
+  if (resultPlayer > randomNumber) {
+    paintHTML(text, "¡Ha ganado el Ejército del Bien! Enhorabuena");
     playerPoints++;
     counter++;
-  } else if (choosePlayer() === randomNumber) {
-    text.innerHTML = "Empate";
+  } else if (resultPlayer === randomNumber) {
+    paintHTML(text, "Empate");
     counter++;
   } else {
-    text.innerHTML = "¡Ha ganado el Ejército del Mal! Vuelve a intentarlo";
+    paintHTML(text, "¡Ha ganado el Ejército del Mal! Vuelve a intentarlo");
     cpuPoints++;
     counter++;
   }
 }
 
-function points() {
-  player.innerHTML = `Jugador: ${playerPoints}`;
-  cpu.innerHTML = `Computadora: ${cpuPoints}`;
+function getPoints() {
+  paintHTML(player, `Jugador: ${playerPoints}`);
+  paintHTML(cpu, `Computadora: ${cpuPoints}`);
 }
 
 function restart() {
@@ -63,7 +68,7 @@ function restart() {
     restartButton.classList.remove("hidden");
     startButton.classList.add("hidden");
     counter = "";
-    winner();
+    win();
   } else {
     restartButton.classList.add("hidden");
     startButton.classList.remove("hidden");
@@ -75,17 +80,17 @@ restartButton.addEventListener("click", () => {
   restartButton.classList.add("hidden");
   playerPoints = 0;
   cpuPoints = 0;
-  text.innerHTML = "¡Comienza la batalla!";
-  points();
+  paintHTML(text, "¡Comienza la batalla!");
+  getPoints();
   startButton.classList.remove("hidden");
 });
 
-function winner() {
-    if (playerPoints > cpuPoints) {
-        text.innerHTML = "¡Has vencido! Enhorabuena";
-      } else if (playerPoints === cpuPoints) {
-        text.innerHTML = "Empate";
-      } else {
-        text.innerHTML = "¡Has perdido! Vuelve a intentarlo";
-      }
-    }
+function win() {
+  if (playerPoints > cpuPoints) {
+    paintHTML(text, "¡Has vencido! Enhorabuena");
+  } else if (playerPoints === cpuPoints) {
+    paintHTML(text, "Empate");
+  } else {
+    paintHTML(text, "¡Has perdido! Vuelve a intentarlo");
+  }
+}
